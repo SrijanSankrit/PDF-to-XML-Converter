@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DetailFromInvoice>
+                
+    
+    
+    <page ID="1">
+                        
+        
+        <DATE>30-05-2020</DATE>
+                        
+        
+        <Text>Phone 405.555.0190   Fax 405.555.0191</Text>
+                        
+        
+        <Text>City, ST  ZIP Code</Text>
+                        
+        
+        <FOR>Baking Invoice</FOR>
+                        
+        
+        <Text>Street Address</Text>
+                        
+        
+        <Text>Your Company Slogan</Text>
+                        
+        
+        <INVOICE-->100</INVOICE-->
+                        
+        
+        <Text>INVOICE</Text>
+                        
+        
+        <Bill-To>Name Company Name Street Address City, ST  ZIP Code Phone </Bill-To>
+                    
+        
+        <table ID="t1">
+                        
+            <row>
+                                
+                <DESCRIPTION>Choco Pastry</DESCRIPTION>
+                                
+                <AMOUNT>200.00$                </AMOUNT>
+                            
+            </row>
+                        
+            <row>
+                                
+                <DESCRIPTION>Vanilla ice cream</DESCRIPTION>
+                                
+                <AMOUNT>100.00                  </AMOUNT>
+                            
+            </row>
+                        
+            <row>
+                                
+                <DESCRIPTION>Pizza Bread</DESCRIPTION>
+                                
+                <AMOUNT>80.00                    </AMOUNT>
+                            
+            </row>
+                    
+        </table>
+            
+        <TOTAL>380</TOTAL>
+        <Text>If you have any questions concerning this invoice, contact Name, Phone Number, E-mail</Text>
+        <Text>THANK YOU FOR YOUR BUSINESS!</Text>
+    </page>
+                
+    
+    
+    <page ID="2"/>
+            
+
+
+</DetailFromInvoice>
