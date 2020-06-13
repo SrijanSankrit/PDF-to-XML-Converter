@@ -122,15 +122,15 @@ public class myPDFTextStripper extends PDFTextStripper{
     			
     			for(Box box: boxes) {
     				// Checks if the word belongs in any column horizontally.
-   					if( ( box.startX <= (int)block.startX && (int)block.startX <= box.endX )
-   								|| ( box.startX <= (int)block.endX && (int)block.endX <= box.endX ) ) {
+   					if( ( box.getStartX() <= (int)block.startX && (int)block.startX <= box.getEndX() )
+   								|| ( box.getStartX() <= (int)block.endX && (int)block.endX <= box.getEndX() ) ) {
    						
    						// We check the vertical distance now. I assume a distance of 20. If vertical distance is > 20, that is a new column.
-   						if(line.startY < box.endY + MyConstants.maxGapBetweenBoxes) {
-							box.boxBlocks.add(block);
-        					box.endY = (int)line.endY;
-        					if((int)block.startX < box.startX) box.startX = (int)block.startX;
-        					if((int)block.endX > box.endX) box.endX = (int)block.endX;
+   						if(line.startY < box.getEndY() + MyConstants.maxGapBetweenBoxes) {
+							box.getBoxBlocks().add(block);
+        					box.setEndY((int)line.endY);
+        					if((int)block.startX < box.getStartX()) box.setStartX((int)block.startX);
+        					if((int)block.endX > box.getEndX()) box.setEndX((int)block.endX);
         					added = true;
         					break;
     					}
@@ -141,8 +141,8 @@ public class myPDFTextStripper extends PDFTextStripper{
     			
     			if(added == false) {
     				Box newBox = new Box((int)line.startY, (int)line.endY , (int)block.startX, (int)block.endX);
-   					newBox.boxBlocks.add(block);
-   					newBox.boxId = i++;
+   					newBox.getBoxBlocks().add(block);
+   					newBox.setBoxId(i++);
    					boxes.add(newBox);
    					
    				}
@@ -168,7 +168,7 @@ public class myPDFTextStripper extends PDFTextStripper{
 		 		int colonCount = 0;
 		 
 		    	for(Box box : boxes) {
-		    		for(StringBlock block : box.boxBlocks) {
+		    		for(StringBlock block : box.getBoxBlocks()) {
 		    			blockCount++;
 		    			if(block.hasColon() != -1) colonCount++;
 		    			if(block.isBold() != -1) boldCount++;

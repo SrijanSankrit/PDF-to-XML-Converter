@@ -4,14 +4,16 @@ import java.util.ArrayList;
 // Data stored in different boxes inside the pdf.
 // This is basically a box with integer dimensions.
 public class Box {
-	protected int startX, endX, startY, endY;
+	private int startX, endX, startY, endY;
 	
 	// Stores the words in the box.
-	ArrayList<StringBlock> boxBlocks ;
+	private ArrayList<StringBlock> boxBlocks ;
 	
 	// id of the box
-	protected int boxId;
+	private int boxId;
 	
+	
+
 	//class constructor
 	public Box(int top, int bottom, int left, int right) {
 		boxBlocks = new ArrayList<StringBlock>();
@@ -20,6 +22,55 @@ public class Box {
 		this.startY = top;
 		this.endY = bottom;
 	}
+	
+	public int getStartX() {
+		return startX;
+	}
+
+	public void setStartX(int startX) {
+		this.startX = startX;
+	}
+
+	public int getEndX() {
+		return endX;
+	}
+
+	public void setEndX(int endX) {
+		this.endX = endX;
+	}
+
+	public int getStartY() {
+		return startY;
+	}
+
+	public void setStartY(int startY) {
+		this.startY = startY;
+	}
+
+	public int getEndY() {
+		return endY;
+	}
+
+	public void setEndY(int endY) {
+		this.endY = endY;
+	}
+
+	public ArrayList<StringBlock> getBoxBlocks() {
+		return boxBlocks;
+	}
+
+	public void setBoxBlocks(ArrayList<StringBlock> boxBlocks) {
+		this.boxBlocks = boxBlocks;
+	}
+
+	public int getBoxId() {
+		return boxId;
+	}
+
+	public void setBoxId(int boxId) {
+		this.boxId = boxId;
+	}
+	
 }
 
 

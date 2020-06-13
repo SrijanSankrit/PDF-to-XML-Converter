@@ -25,7 +25,7 @@ public class BusinessWordExtractor {
 	    			String prevFont = null;
 	    			
 	    			StringBlock prevBlock = null;
-	    			for(StringBlock block : box.boxBlocks) {
+	    			for(StringBlock block : box.getBoxBlocks()) {
 	    				if(prevFont == null) prevFont = block.textPositions.get(0).getFont().toString();
 	    				
 	    				for(int i=1;i<block.textPositions.size();i++) {
@@ -62,11 +62,11 @@ public class BusinessWordExtractor {
 	    	
 	
 	    	for(Box box : boxes) {
-	    		int numBoxBlocks = box.boxBlocks.size();
+	    		int numBoxBlocks = box.getBoxBlocks().size();
 	    		int i=0;
 	    		int textCount=1;
 	    		while(i < numBoxBlocks) {
-	    			StringBlock currStringBlock = box.boxBlocks.get(i);
+	    			StringBlock currStringBlock = box.getBoxBlocks().get(i);
 	    			int checker = -1;
 	    			if(divider == "COLON") checker = currStringBlock.hasColon();
 	    			else if(divider == "BOLD FONT") {
@@ -91,7 +91,7 @@ public class BusinessWordExtractor {
 	    					int j = i+1;
        					while(j < numBoxBlocks) {
        						
-       						StringBlock nextStringBlock = box.boxBlocks.get(j);
+       						StringBlock nextStringBlock = box.getBoxBlocks().get(j);
        						int checker2 = -1;
        						if(divider == "COLON") checker2 = nextStringBlock.hasColon();
        		    			else if(divider == "BOLD FONT") checker2 = nextStringBlock.isBold();
