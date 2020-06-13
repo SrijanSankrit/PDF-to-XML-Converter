@@ -7,6 +7,7 @@ import java.util.Set;
 
 public class NonStandardTable extends Table implements BusinessTableInterface {
 
+	//represents tables present in a non standard document
 	public int startLine;
 	public static int endLine = -1;
 	public static int endRec = -1;
@@ -19,7 +20,7 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 	
 	public static int getStartLine(List<MyPDRectangle> rectangles, List<PDFLine> lines)
 	{
-		
+		//static method to get the starting line of the table
 		Collections.sort(rectangles);
 		int numRectangles = rectangles.size();
 		float tableStartPos ;
@@ -31,9 +32,9 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 		float prevStartY = -1;
 		float prevEndY = -1;
 		int numTables = 0;
-		
+				//find rectangle that starts and end the table, along with starting and ending positions of the table
 		for(i = 0; i<numRectangles ; i++)
-		{
+		{						//loop through all the rectangles 
 				MyPDRectangle rectangle = rectangles.get(i);
 				float xl = rectangle.getLowerLeftX();
 				float xr = rectangle.getUpperRightX();
@@ -42,7 +43,7 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 		        if(i != 0)
 		        {
 		        	MyPDRectangle prevRectangle = rectangles.get(i-1);
-		        	
+		        						//check if consecutive rectangles with same startY and endY
 		        	if(yl == prevRectangle.getLowerLeftY() && yr == prevRectangle.getUpperRightY())
 		        	{
 		        		count++;
@@ -50,21 +51,21 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 		        	else 
 		        		count=1;
 		        	
-		        	if(count > 2)
+		        	if(count > 2)			//if more than two such consecutive rectangles found, consider this to be a row 
 		        	{
-		        		if(prevStartY == -1 && prevEndY == -1)		//start of a new Table
+		        		if(prevStartY == -1 && prevEndY == -1)		//if previous row's start and endY not set, start of a new Table
 		        		{
 		        			prevStartY = yr;
 		        			prevEndY = yl;
 		        			startRect = i; 
 		        		}
-		        		else 			//checking if the new consecutive cells are a part of the table
+		        		else 			//checking if the new consecutive cells are a part of the existing table
 		        		{
-		        			if(yr<prevEndY)		//consecutive cells overlap with previous ones
+		        			if(yr<prevEndY)		//new consecutive cells overlap with previous ones
 		        			{
-		        				prevEndY = Math.max(prevEndY, yl) ; //expand the cell		        				
+		        				prevEndY = Math.max(prevEndY, yl) ; //Thus, expand the cell		        				
 		        			}
-		        			else if(yr - prevEndY < 10)		//new consecutive cells are close to previous ones and hence a row in the table
+		        			else if(yr - prevEndY < MyConstants.maxGapBetweenTwoRows)		//new consecutive cells are close to previous ones and hence a row in the table
 		        			{
 		        				numTables = 1;
 		        				numRows++;
@@ -75,7 +76,7 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 		        			{
 		        				if(numTables > 0)		//if a table is already found, break
 		        				{
-		        					endRec = i;
+		        					endRec = i;		//set last rectangle of table
 		        					break;
 		        				}
 		        				else				//resume search
@@ -100,9 +101,10 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 			int numLines = lines.size();
 			int j = 0;
 			
+			//search for the line number that ends the table by comparing end position of line and end position of table 
 			while(j<numLines && lines.get(j).endY <= prevEndY)
 			{
-					j++;
+					j++;		
 			}
 			
 			endLine = j ;
@@ -110,7 +112,7 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 			for(j = 0 ; j<numLines ; j++)
 			{
 				PDFLine line = lines.get(j);
-				
+				//search for the line number that starts the table by comparing start position of line and start position of table 
 				if(line.startY > tableStartPos)
 				{
 					return j;
@@ -130,7 +132,7 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 		build(this, lines);	
 	}
 		
-	public boolean isEOT(int lineNo, PDFLine line)		//function to check if table ended - specific to items table
+	public boolean isEOT(int lineNo, PDFLine line)		//function to check if table ended 
 	{
 
 			if(startLine + lineNo == endLine)
@@ -149,7 +151,8 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 	
 	public void mergeRows(int rowNum, PDFLine line1, PDFLine line2)		//merges rows that belong together
 	{
-		if(line1.startY - line2.endY < 8)
+		//if lines are two close together, merge current row with previous one
+		if(line1.startY - line2.endY < MyConstants.maxGapBetweenTwoRows)
 		{
 			HashMap<String,String> prevRow = data.get(rowNum-2);
 			HashMap<String,String> currRow = data.get(rowNum-1);

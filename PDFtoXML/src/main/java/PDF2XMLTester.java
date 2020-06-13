@@ -5,12 +5,12 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 
 public class PDF2XMLTester {
 
-		 public static String solver(String fileName,ArrayList<Integer> arr,String pw) throws Exception {
+		 public static String solver(String s,ArrayList<Integer> arr,String pw) throws Exception {
 		       
 				 PDDocument document = null ;
 				 try
 				 {
-					 File file = new File(fileName); 
+					 File file = new File(s); 
 						//loading the document
 					 if(pw!="") {
 						 document = PDDocument.load(file,pw);
@@ -29,7 +29,7 @@ public class PDF2XMLTester {
 				     }
 					   
 				      PDF2XML PDF2XMLObj = new PDF2XML();
-				      PDF2XMLObj.convert(document,arr,fileName);  
+				      PDF2XMLObj.convert(document,arr);  
 				      
 				      
 				      //Closing the document  
@@ -44,4 +44,8 @@ public class PDF2XMLTester {
 				 }
 		 }			 
 
-  } 
+  }  
+			 
+			 
+			 
+	

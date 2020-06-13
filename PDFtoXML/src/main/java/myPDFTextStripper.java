@@ -78,7 +78,7 @@ public class myPDFTextStripper extends PDFTextStripper{
 			PDFLine currLine = lines.get(lines.size()-1);
 			/*if the block starts before the previous block ends or starts within a gap of 2 
 				after previous block ends, group it in the same line*/
-			if(block.startY >= currLine.startY && block.startY <= currLine.endY + 2)
+			if(block.startY >= currLine.startY && block.startY <= currLine.endY + MyConstants.mergeLinesDistance)
 			{	currLine.lineBlocks.add(block);
 				currLine.endY = Math.max(currLine.endY, block.endY);
 			}
@@ -125,7 +125,7 @@ public class myPDFTextStripper extends PDFTextStripper{
    								|| ( box.startX <= (int)block.endX && (int)block.endX <= box.endX ) ) {
    						
    						// We check the vertical distance now. I assume a distance of 20. If vertical distance is > 20, that is a new column.
-   						if(line.startY < box.endY + 20) {
+   						if(line.startY < box.endY + MyConstants.maxGapBetweenBoxes) {
 							box.boxBlocks.add(block);
         					box.endY = (int)line.endY;
         					if((int)block.startX < box.startX) box.startX = (int)block.startX;
@@ -175,9 +175,9 @@ public class myPDFTextStripper extends PDFTextStripper{
 		    	}
 		    	
 		    	// If colonCount is 15% of wordCount, use colon to extract data.
-		    	if((int)(blockCount * 0.15) <= colonCount) return "COLON";
+		    	if((int)(blockCount * MyConstants.colonPercentage) <= colonCount) return "COLON";
 		    	// IF bold Count is 30% of word count, Bold lines for classifying key value pairs.
-		    	else if((int)(blockCount * 0.30) <= boldCount) return "BOLD FONT";
+		    	else if((int)(blockCount * MyConstants.boldPercentage) <= boldCount) return "BOLD FONT";
 		    	else return "FONT CHANGE";
    }
 	
