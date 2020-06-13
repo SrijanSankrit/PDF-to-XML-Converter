@@ -62,12 +62,14 @@ public class XMLCreator {
 			else {
 				fileN=fileN.substring(0,fileN.lastIndexOf(".pdf"));
 			}
+			fileN=fileN.replaceAll("[^A-Za-z0-9]", "-");
+			
 			// write to file
 			LocalDateTime myDateObj = LocalDateTime.now();
 			DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
 			name=fileN+myDateObj.format(myFormatObj)+".xml";
 			StreamResult file = new StreamResult(new File(name));
-
+			
 			// write data
 
 			transformer.transform(source, file);
