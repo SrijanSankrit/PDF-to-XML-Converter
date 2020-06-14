@@ -6,7 +6,7 @@ import org.apache.pdfbox.text.TextPosition;
 
 
 public class myPDFTextStripper extends PDFTextStripper{
-	List<StringBlock> blocks = new ArrayList<StringBlock>();
+	protected List<StringBlock> blocks = new ArrayList<StringBlock>();
 	public myPDFTextStripper() throws IOException {
 		super();
 		// TODO Auto-generated constructor stub
@@ -109,7 +109,14 @@ public class myPDFTextStripper extends PDFTextStripper{
 	}
 	
 	
-
+	/**
+	 * 
+	 * This function takes care of dividing the whole PDF page into information carrying boxes.
+	 * 
+	 * @param lines List of lines inside the PDF page.
+	 * @return List of boxes identified inside the PDF page.
+	 * 
+	 */
 	protected List<Box> createBoxes(List<PDFLine> lines) {
     	int i = 0;
     	List<Box> boxes = new ArrayList<Box>();
@@ -150,7 +157,14 @@ public class myPDFTextStripper extends PDFTextStripper{
     	return boxes;
     }
 	
-
+	/**
+	 * 
+	 * This function iterates over the whole page, and then classifies the document on how the key and value pairs are to be extracted.
+	 * 
+	 * @param <strong>boxes</strong> List of boxes identified inside the PDF page.
+	 * @return Classifier String which stores information regarding the document type.
+	 * 
+	 */
 	 protected String classifyStyle(List<Box> boxes) 
 	 {
 		 		// We can check if a colon is used to differentiate key and value OR bold keys and words.

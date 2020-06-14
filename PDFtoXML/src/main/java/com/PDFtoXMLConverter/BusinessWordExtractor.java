@@ -12,12 +12,12 @@ import org.apache.pdfbox.text.TextPosition;
  * (i) Key and Value Pairs.<br>
  * (ii) Texts which are not classified as above.<br>
  * 
- * @author SRIJAN
+ * 
  * 
  */
 public class BusinessWordExtractor {
 	
-	
+	// Hash Table which stores key and value pairs found in the PDf page.
 	private HashMap<String, String> keyAndValuePairs = new HashMap<String, String>();
 	
 	public HashMap<String, String> getKeyAndValuePairs() {
@@ -33,14 +33,15 @@ public class BusinessWordExtractor {
 	 * 
 	 * This function extracts the key and value pairs from the page and stores it in the hash table.
 	 * 
-	 * @author SRIJAN
+	 * 
 	 * @param boxes List of boxes found in the PDF page.
 	 * @param classifier Carries the information about how the key and value are separated in the page.
 	 * 
 	 */
 	
 	protected void extract(List<Box> boxes, String classifier) {
-		//HashMap<String, String> keyAndValuePairs = new HashMap<String, String>();
+		
+		// Offset takes care of not taking the colon while extracting key and value.
 		int offSet = 0;
 		if (classifier == MyConstants.ColonSeparation())
 			offSet = 1;
@@ -81,7 +82,7 @@ public class BusinessWordExtractor {
 			}
 		}
 
-		// To check if font change generalisation is working.
+		// To check if font change generalization is working.
 
 		/*
 		 * for(Box box : boxes) { // Assume that inside a box, only one type of font is

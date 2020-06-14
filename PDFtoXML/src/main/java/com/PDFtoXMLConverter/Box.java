@@ -1,20 +1,26 @@
 package com.PDFtoXMLConverter;
+
 import java.util.ArrayList;
 
-// Data stored in different boxes inside the pdf.
-// This is basically a box with integer dimensions.
+/**
+ * This class stores the contents of a box and its integer dimensions. used to
+ * denote a box inside the PDF page.
+ * 
+ * @author SRIJAN
+ *
+ */
+
 public class Box {
+	// Dimensions of the box.
 	private int startX, endX, startY, endY;
-	
+
 	// Stores the words in the box.
-	private ArrayList<StringBlock> boxBlocks ;
-	
+	private ArrayList<StringBlock> boxBlocks;
+
 	// id of the box
 	private int boxId;
-	
-	
 
-	//class constructor
+	// class constructor
 	public Box(int top, int bottom, int left, int right) {
 		boxBlocks = new ArrayList<StringBlock>();
 		this.startX = left;
@@ -22,7 +28,7 @@ public class Box {
 		this.startY = top;
 		this.endY = bottom;
 	}
-	
+
 	public int getStartX() {
 		return startX;
 	}
@@ -70,7 +76,5 @@ public class Box {
 	public void setBoxId(int boxId) {
 		this.boxId = boxId;
 	}
-	
+
 }
-
-
