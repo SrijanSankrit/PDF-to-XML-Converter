@@ -61,7 +61,7 @@ public class PDF2XMLTester {
 				 {
 					 //prompting to check the fileName
 					 document.close();
-					 return Messages.getString("PDF2XMLTester.3"); //$NON-NLS-1$
+					 return Messages.getString("PDF2XMLTester.3"); 
 				 }
 		 }			 
 
