@@ -66,7 +66,7 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 		        			{
 		        				prevEndY = Math.max(prevEndY, yl) ; //Thus, expand the cell		        				
 		        			}
-		        			else if(yr - prevEndY < MyConstants.maxGapBetweenTwoRows)		//new consecutive cells are close to previous ones and hence a row in the table
+		        			else if(yr - prevEndY < MyConstants.getMaxgapbetweentworows())		//new consecutive cells are close to previous ones and hence a row in the table
 		        			{
 		        				numTables = 1;
 		        				numRows++;
@@ -153,7 +153,7 @@ public class NonStandardTable extends Table implements BusinessTableInterface {
 	public void mergeRows(int rowNum, PDFLine line1, PDFLine line2)		//merges rows that belong together
 	{
 		//if lines are two close together, merge current row with previous one
-		if(line1.startY - line2.endY < MyConstants.maxGapBetweenTwoRows)
+		if(line1.startY - line2.endY < MyConstants.getMaxgapbetweentworows())
 		{
 			HashMap<String,String> prevRow = data.get(rowNum-2);
 			HashMap<String,String> currRow = data.get(rowNum-1);
