@@ -1,15 +1,14 @@
 package com.PDFtoXMLConverter;
-
 import java.util.ArrayList;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
 
 public class PDF2XML {
-	public void convert(PDDocument doc, ArrayList<Integer> pageNos) throws Exception
+	public void convert(PDDocument doc, ArrayList<Integer> pageNos,String fileName) throws Exception
 	{
 		int size = pageNos.size();
 		
-		XMLCreator xmlCreator = new XMLCreator(pageNos);
+		XMLCreator xmlCreator = new XMLCreator(pageNos,fileName);
 		//Send doc to check whether it is an invoice
 		
 				
@@ -35,4 +34,3 @@ public class PDF2XML {
 	
 }
 }
-

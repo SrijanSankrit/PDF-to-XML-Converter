@@ -22,7 +22,8 @@ import java.time.format.DateTimeFormatter;
 public class XMLCreator {
 	
 	private String name;
-	XMLCreator(ArrayList<Integer> pageNos) {
+	private int tableId=1;
+	XMLCreator(ArrayList<Integer> pageNos,String fileName) {
 
 		// Upon Instantiation, a file "CreatedXML.xml" is added to the folder
 		try {
@@ -51,13 +52,25 @@ public class XMLCreator {
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			DOMSource source = new DOMSource(doc);
-
+			
+			
+			String fileN=fileName;
+			fileN=fileN.substring(fileN.lastIndexOf('\\')+1);
+			if(fileN.length()==4) {
+				fileN="sample";
+			}
+			
+			else {
+				fileN=fileN.substring(0,fileN.lastIndexOf(".pdf"));
+			}
+			fileN=fileN.replaceAll("[^A-Za-z0-9]", "-");
+			
 			// write to file
 			LocalDateTime myDateObj = LocalDateTime.now();
 			DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
-			name="CreatedXML"+myDateObj.format(myFormatObj)+".xml";
+			name=fileN+myDateObj.format(myFormatObj)+".xml";
 			StreamResult file = new StreamResult(new File(name));
-
+			
 			// write data
 
 			transformer.transform(source, file);
@@ -74,6 +87,7 @@ public class XMLCreator {
 		File xmlFile = new File(filePath);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
+		
 		try {
 			dBuilder = dbFactory.newDocumentBuilder();
 
@@ -95,6 +109,7 @@ public class XMLCreator {
 				String tag = "";
 				
 				
+				
 				if(id=="") {
 					id='_'+id;
 				}
@@ -112,10 +127,24 @@ public class XMLCreator {
 				if(tag.charAt(0)=='-') {
 					tag='_'+tag;
 				}
+				Element data;
+				data = doc.createElement(tag);
+				if(tag.length()>4) {
+					if("Text".equals(tag.substring(0,4)) ) {
+				
+					
+					data = doc.createElement(tag.substring(0,4));
+					}	
+					
+				}
+				
+					
+					
+				
 				
 				
 						
-						Element data = doc.createElement(tag);
+						
 						data.appendChild(doc.createTextNode(value));
 						page.appendChild(data);
 						
@@ -165,7 +194,8 @@ public class XMLCreator {
 			Node page=doc.getElementsByTagName("page").item(index);
 			
 			Element table = doc.createElement("table");
-			table.setAttribute("ID", "t"+Integer.toString(pageId));
+			table.setAttribute("ID", "t"+Integer.toString(tableId));
+			tableId++;
 			page.appendChild(table);
 			
 			// loop for each row

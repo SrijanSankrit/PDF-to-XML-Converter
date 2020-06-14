@@ -203,6 +203,7 @@ public class GuiAdder {
 		frame.getContentPane().add(lblNewLabel);
 		
 		textEnterPages = new JTextField();
+		textEnterPages.setText("*");
 		textEnterPages.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		textEnterPages.setBounds(400, 147, 422, 40);
 		frame.getContentPane().add(textEnterPages);
