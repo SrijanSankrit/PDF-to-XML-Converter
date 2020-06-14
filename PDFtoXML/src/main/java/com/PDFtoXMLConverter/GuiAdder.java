@@ -136,7 +136,7 @@ public class GuiAdder {
 				
 				ArrayList<Integer> al = new ArrayList<Integer>();
 				
-				if(pgs.charAt(0)=='*' && pgs.length()==1) {
+				if((pgs.charAt(0)=='*' && pgs.length()==1)) {
 					  
 					 PDDocument document ;
 					 try{

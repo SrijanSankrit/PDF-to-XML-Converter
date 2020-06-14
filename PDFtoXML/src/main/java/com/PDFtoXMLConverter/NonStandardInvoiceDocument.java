@@ -50,7 +50,8 @@ public class NonStandardInvoiceDocument extends BusinessDoc {
 					}
 
 					preambleBoxes = stripper.createBoxes(preambleLines);		//creating boxes out of said lines
-					HashMap<String, String> preamble = wordExtractor.extract(preambleBoxes, stripper.classifyStyle(preambleBoxes));
+					wordExtractor.extract(preambleBoxes, stripper.classifyStyle(preambleBoxes));
+					HashMap<String, String> preamble = wordExtractor.getKeyAndValuePairs();
 					
 					if(preambles == null)
 						preambles = new ArrayList<HashMap<String,String>>();
@@ -86,7 +87,9 @@ public class NonStandardInvoiceDocument extends BusinessDoc {
 						summaryLines.add(docLines.get(x));	
 					
 					summaryBoxes = stripper.createBoxes(summaryLines);			//creating boxes out of said lines
-					summary = wordExtractor.extract(summaryBoxes, stripper.classifyStyle(summaryBoxes));
+					wordExtractor.extract(summaryBoxes, stripper.classifyStyle(summaryBoxes));
+					
+					summary = wordExtractor.getKeyAndValuePairs();
 				}
 			}
 			else 
@@ -99,7 +102,8 @@ public class NonStandardInvoiceDocument extends BusinessDoc {
 					preambles = new ArrayList<HashMap<String,String>>();
 				List<Box> preambleBoxes = stripper.createBoxes(docLines);
 				
-				preambles.add(wordExtractor.extract(preambleBoxes, stripper.classifyStyle(preambleBoxes))); //store everything in preamble
+				wordExtractor.extract(preambleBoxes, stripper.classifyStyle(preambleBoxes));
+				preambles.add(wordExtractor.getKeyAndValuePairs());  //store everything in preamble
 				summary = null;	//no summary exists
 			}
 

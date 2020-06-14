@@ -5,21 +5,51 @@ import java.util.*;
 
 import org.apache.pdfbox.text.TextPosition;
 
+/**
+ * 
+ * This class extracts the value data from the PDF Document excluding the table part.
+ * It divides the unstructured part into : <br>
+ * (i) Key and Value Pairs.<br>
+ * (ii) Texts which are not classified as above.<br>
+ * 
+ * @author SRIJAN
+ * 
+ */
 public class BusinessWordExtractor {
+	
+	
+	private HashMap<String, String> keyAndValuePairs = new HashMap<String, String>();
+	
+	public HashMap<String, String> getKeyAndValuePairs() {
+		return keyAndValuePairs;
+	}
 
-	// takes boxes and string that classifes style of document (colon/bold) as input
-	// returns a hashmap of words and their values.
-	public HashMap<String, String> extract(List<Box> boxes, String divider) {
-		HashMap<String, String> keyAndValuePairs = new HashMap<String, String>();
+	public void setKeyAndValuePairs(HashMap<String, String> keyAndValuePairs) {
+		this.keyAndValuePairs = keyAndValuePairs;
+	}
+
+	
+	/**
+	 * 
+	 * This function extracts the key and value pairs from the page and stores it in the hash table.
+	 * 
+	 * @author SRIJAN
+	 * @param boxes List of boxes found in the PDF page.
+	 * @param classifier Carries the information about how the key and value are separated in the page.
+	 * 
+	 */
+	
+	protected void extract(List<Box> boxes, String classifier) {
+		//HashMap<String, String> keyAndValuePairs = new HashMap<String, String>();
 		int offSet = 0;
-		if (divider == MyConstants.ColonSeparation())
+		if (classifier == MyConstants.ColonSeparation())
 			offSet = 1;
-		else if (divider == MyConstants.BoldFont() || divider == MyConstants.FontChange())
+		else if (classifier == MyConstants.BoldFont() || classifier == MyConstants.FontChange())
 			offSet = 0;
 
 		// Checks if font name length decreases which marks the start of value.
 
-		if (divider == MyConstants.FontChange()) {
+		if (classifier == MyConstants.FontChange()) {
 			for (Box box : boxes) { // Assume that inside a box, only one type of font is used. Please make this
 									// happen.
 				String previousTextFont = null;
@@ -68,13 +98,13 @@ public class BusinessWordExtractor {
 			while (lineInBox < numBoxBlocks) {
 				StringBlock currStringBlock = box.getBoxBlocks().get(lineInBox);
 				int checker = -1;
-				if (divider == MyConstants.ColonSeparation())
+				if (classifier == MyConstants.ColonSeparation())
 					checker = currStringBlock.hasColon();
-				else if (divider == MyConstants.BoldFont()) {
+				else if (classifier == MyConstants.BoldFont()) {
 
 					checker = currStringBlock.isBold();
 
-				} else if (divider == MyConstants.FontChange())
+				} else if (classifier == MyConstants.FontChange())
 					checker = currStringBlock.fontChange;
 
 				if (checker != -1) {
@@ -95,11 +125,11 @@ public class BusinessWordExtractor {
 
 							StringBlock nextStringBlock = box.getBoxBlocks().get(lastLineOfValue);
 							int checker2 = -1;
-							if (divider == MyConstants.ColonSeparation())
+							if (classifier == MyConstants.ColonSeparation())
 								checker2 = nextStringBlock.hasColon();
-							else if (divider == MyConstants.BoldFont())
+							else if (classifier == MyConstants.BoldFont())
 								checker2 = nextStringBlock.isBold();
-							else if (divider == MyConstants.FontChange())
+							else if (classifier == MyConstants.FontChange())
 								checker2 = nextStringBlock.fontChange;
 
 							// Now, we add everything to the value string until we encounter a bold
@@ -123,7 +153,7 @@ public class BusinessWordExtractor {
 
 					}
 				}
-				// If no Bold nor Colon separation.
+				// If not classified as a key and value pair.
 				else {
 
 					String key = "Text" + textCount;
@@ -135,8 +165,6 @@ public class BusinessWordExtractor {
 
 			}
 		}
-
-		return keyAndValuePairs;
 	}
 
 }

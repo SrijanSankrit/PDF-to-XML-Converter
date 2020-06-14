@@ -98,8 +98,7 @@ public class myPDFTextStripper extends PDFTextStripper{
 		int numLines = lines.size() ;
 		for(i = 0 ; i< numLines ; i++)
 		{
-			PDFLine tempLine = lines.get(i);
-			//sort the blocks in a line based on increasing X
+			PDFLine tempLine = lines.get(i); //sort the blocks in a line based on increasing X
 			lines.remove(i);
 			tempLine.sort();
 			lines.add(i,tempLine);
@@ -111,7 +110,7 @@ public class myPDFTextStripper extends PDFTextStripper{
 	
 	
 
-	public List<Box> createBoxes(List<PDFLine> lines) {
+	protected List<Box> createBoxes(List<PDFLine> lines) {
     	int i = 0;
     	List<Box> boxes = new ArrayList<Box>();
     	for(PDFLine line : lines) {
@@ -152,7 +151,7 @@ public class myPDFTextStripper extends PDFTextStripper{
     }
 	
 
-	 public String classifyStyle(List<Box> boxes) 
+	 protected String classifyStyle(List<Box> boxes) 
 	 {
 		 		// We can check if a colon is used to differentiate key and value OR bold keys and words.
 		    	// Having colons is given higher Priority. :)
