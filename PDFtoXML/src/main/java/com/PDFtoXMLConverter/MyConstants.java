@@ -16,8 +16,6 @@ public class MyConstants {
 	private static final String FONT_CHANGE = "FONT CHANGE";
 	
 	
-	
-	
 	public static float getMaxgapbetweentworows() {
 		return maxGapBetweenTwoRows;
 	}

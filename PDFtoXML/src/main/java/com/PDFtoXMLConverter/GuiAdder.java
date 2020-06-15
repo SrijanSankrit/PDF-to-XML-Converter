@@ -22,6 +22,8 @@ import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
 import java.awt.Color;
@@ -36,6 +38,8 @@ import javax.swing.JTree;
  * 
  */
 public class GuiAdder {
+	
+	private static Logger logger = LogManager.getLogger(GuiAdder.class.getName());
 
 	private JFrame frame;
 	private JTextField txtEnterFileName;
@@ -125,9 +129,12 @@ public class GuiAdder {
 						 
 						 document = PDDocument.load(file,pw);
 						 
+						 logger.info("Password protected file");
+						 
 						 document.close();
 					}
 					catch(IOException e1) {
+						logger.error("Wrong Password Entered");
 						JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.7")); 
 					}
 				}
@@ -136,18 +143,23 @@ public class GuiAdder {
 						 PDDocument document ;
 						 File file = new File(S);
 						 document = PDDocument.load(file,pw);
+						 
 						 document.close();
 					}
 					catch(IOException e1) {
+						logger.info("Password Protected File");
+						logger.warn("Password not entered!");
 						JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.8"));
 					}
+					
 				}
 				
 				
 				ArrayList<Integer> al = new ArrayList<Integer>();
 				
 				if((pgs.charAt(0)=='*' && pgs.length()==1)) {
-					  
+					 
+					 logger.info("All pages to be extracted!");
 					 PDDocument document ;
 					 try{
 						 File file = new File(S);

@@ -2,6 +2,8 @@ package com.PDFtoXMLConverter;
 import java.io.*;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.pdfbox.pdmodel.PDDocument;
 /**
  * 
@@ -13,6 +15,8 @@ import org.apache.pdfbox.pdmodel.PDDocument;
  * 
  */
 public class PDF2XMLTester {
+	
+
 	/**
 	 * 
 	 *  This method checks if the given list of pages <br>
@@ -35,10 +39,12 @@ public class PDF2XMLTester {
 						//loading the document
 					 if(pw!=Messages.getString("PDF2XMLTester.0")) { //checking if password is entered or not
 						 document = PDDocument.load(file,pw);
+						 
 						 document.setAllSecurityToBeRemoved(true);
 					 }
 					 else{
 						 document = PDDocument.load(file);
+						 
 					 }
 					 
 					 int size = arr.size();
@@ -61,6 +67,7 @@ public class PDF2XMLTester {
 				 {
 					 //prompting to check the fileName
 					 document.close();
+					
 					 return Messages.getString("PDF2XMLTester.3"); 
 				 }
 		 }			 

@@ -143,7 +143,7 @@ public class myPDFTextStripper extends PDFTextStripper{
    					}
    				}
    				
-    			// If no column matches, make a new Column with all 4 boundaries.
+    			// If no box matches, make a new Column with all 4 boundaries.
     			
     			if(added == false) {
     				Box newBox = new Box((int)line.startY, (int)line.endY , (int)block.startX, (int)block.endX);

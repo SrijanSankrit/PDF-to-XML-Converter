@@ -3,6 +3,8 @@ package com.PDFtoXMLConverter;
 import java.util.*;
 //extracts words from the preamble and summary of the document
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.pdfbox.text.TextPosition;
 
 /**
@@ -16,6 +18,8 @@ import org.apache.pdfbox.text.TextPosition;
  * 
  */
 public class BusinessWordExtractor {
+	
+	
 	
 	// Hash Table which stores key and value pairs found in the PDf page.
 	private HashMap<String, String> keyAndValuePairs = new HashMap<String, String>();
@@ -40,6 +44,7 @@ public class BusinessWordExtractor {
 	 */
 	
 	protected void extract(List<Box> boxes, String classifier) {
+
 		
 		// Offset takes care of not taking the colon while extracting key and value.
 		int offSet = 0;
