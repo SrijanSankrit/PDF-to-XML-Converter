@@ -9,7 +9,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
  * holds correct for the PDF specified<br>
  * and prompts for XML Generation.
  * 
- * @author KUSHAGRA
+ * @author KUSHAGRA and BHAVYA
  * 
  */
 public class PDF2XMLTester {

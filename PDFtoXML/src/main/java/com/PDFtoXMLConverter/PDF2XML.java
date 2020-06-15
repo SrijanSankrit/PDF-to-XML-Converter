@@ -7,7 +7,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
  * and adds the XML pages to the generated XML<br>
  * pagewise.
  * 
- * @author KUSHAGRA
+ * @author KUSHAGRA and BHAVYA
  * 
  */
 
