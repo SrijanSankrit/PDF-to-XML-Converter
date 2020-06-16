@@ -1,11 +1,24 @@
-[INFO ] 2020-06-16 23:56:121 com.PDFtoXMLConverter.GuiAdder:138 - File opened successfully.
-[INFO ] 2020-06-16 23:56:125 com.PDFtoXMLConverter.GuiAdder:168 - All pages to be extracted!
-[INFO ] 2020-06-16 23:56:145 com.PDFtoXMLConverter.PDF2XML:40 - FileName -->C:\Users\HP\Desktop\sample.pdf
-[INFO ] 2020-06-16 23:56:269 com.PDFtoXMLConverter.PDF2XML:51 - 
+[INFO ] 2020-06-17 01:06:872 com.PDFtoXMLConverter.GuiAdder:160 - File opened successfully.
+[INFO ] 2020-06-17 01:06:876 com.PDFtoXMLConverter.GuiAdder:176 - All pages to be extracted!
+[INFO ] 2020-06-17 01:06:905 com.PDFtoXMLConverter.PDF2XML:40 - FileName -->C:\Users\HP\Desktop\Demo Folder\samples\amazon-merged.pdf
+[INFO ] 2020-06-17 01:06:031 com.PDFtoXMLConverter.PDF2XML:51 - 
 Processing Page No. 0
-[INFO ] 2020-06-16 23:56:573 com.PDFtoXMLConverter.InvoiceDocument:105 - Non Standard Invoice Document !
-[INFO ] 2020-06-16 23:56:579 com.PDFtoXMLConverter.NonStandardInvoiceDocument:145 - table extracted!
-[INFO ] 2020-06-16 23:56:580 com.PDFtoXMLConverter.NonStandardInvoiceDocument:60 - Preamble Extracted!
-[INFO ] 2020-06-16 23:56:592 com.PDFtoXMLConverter.NonStandardInvoiceDocument:154 - Preamble is getting added to the XMl!
-[INFO ] 2020-06-16 23:56:602 com.PDFtoXMLConverter.NonStandardInvoiceDocument:161 - Table(s) are getting added to the XML!
-[INFO ] 2020-06-16 23:56:658 com.PDFtoXMLConverter.NonStandardInvoiceDocument:166 - Summary is getting added to the XML
+[INFO ] 2020-06-17 01:06:787 com.PDFtoXMLConverter.InvoiceDocument:64 - Invoice Document !
+[INFO ] 2020-06-17 01:06:788 com.PDFtoXMLConverter.InvoiceDocument:65 - Table Found!
+[INFO ] 2020-06-17 01:06:794 com.PDFtoXMLConverter.InvoiceDocument:150 - Preamble Extracted!
+[INFO ] 2020-06-17 01:06:794 com.PDFtoXMLConverter.InvoiceDocument:164 - Summary Extracted!
+[INFO ] 2020-06-17 01:06:811 com.PDFtoXMLConverter.InvoiceDocument:201 - Preamble is getting added to the XML
+[INFO ] 2020-06-17 01:06:847 com.PDFtoXMLConverter.InvoiceDocument:207 - Table is getting added to the XML
+[INFO ] 2020-06-17 01:06:882 com.PDFtoXMLConverter.InvoiceDocument:212 - Summary is getting added to the XML
+[INFO ] 2020-06-17 01:06:883 com.PDFtoXMLConverter.PDF2XML:51 - 
+Processing Page No. 1
+[INFO ] 2020-06-17 01:06:962 com.PDFtoXMLConverter.InvoiceDocument:64 - Invoice Document !
+[INFO ] 2020-06-17 01:06:963 com.PDFtoXMLConverter.InvoiceDocument:65 - Table Found!
+[INFO ] 2020-06-17 01:06:966 com.PDFtoXMLConverter.InvoiceDocument:150 - Preamble Extracted!
+[INFO ] 2020-06-17 01:06:977 com.PDFtoXMLConverter.InvoiceDocument:201 - Preamble is getting added to the XML
+[INFO ] 2020-06-17 01:06:995 com.PDFtoXMLConverter.InvoiceDocument:207 - Table is getting added to the XML
+[INFO ] 2020-06-17 01:06:996 com.PDFtoXMLConverter.PDF2XML:51 - 
+Processing Page No. 2
+[INFO ] 2020-06-17 01:06:033 com.PDFtoXMLConverter.InvoiceDocument:105 - Non Standard Invoice Document !
+[INFO ] 2020-06-17 01:06:044 com.PDFtoXMLConverter.NonStandardInvoiceDocument:105 - No table found
+[INFO ] 2020-06-17 01:06:059 com.PDFtoXMLConverter.NonStandardInvoiceDocument:154 - Preamble is getting added to the XMl!

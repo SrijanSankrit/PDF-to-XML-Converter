@@ -86,7 +86,7 @@ public class GuiAdder {
 		
 		JButton btnNewButton = new JButton(Messages.getString("GuiAdder.1"));   
 		final JButton btnNewFile = new JButton(Messages.getString("GuiAdder.2")); 
-		btnNewFile.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnNewFile.setFont(new Font("Tahoma", Font.BOLD, 10));
 		
 		
 		
@@ -121,13 +121,20 @@ public class GuiAdder {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try{
-				if(txtEnterFileName.getText().equals(Messages.getString("GuiAdder.30"))) { 
+				if(txtEnterFileName.getText().length()<5) {
 					logger.info(Messages.getString(Messages.getString("GuiAdder.42")));  
 					throw new Exception(Messages.getString("GuiAdder.44")); 
 				}
+				if(txtEnterFileName.getText().equals(Messages.getString("GuiAdder.30")) ||!".pdf".equals(txtEnterFileName.getText().substring(txtEnterFileName.getText().length()-4).toLowerCase()) ) { 
+					logger.info(Messages.getString(Messages.getString("GuiAdder.42")));  
+					throw new Exception(Messages.getString("GuiAdder.44")); 
+				}
+				
 				String S=txtEnterFileName.getText() ;
 				String pgs=textEnterPages.getText();
 				String pw=password.getText();
+				
+				
 				
 				if(!pw.equals(Messages.getString("GuiAdder.6"))){  
 					try {
@@ -272,14 +279,19 @@ public class GuiAdder {
 		frame.getContentPane().add(btnNewFile);
 		
 		JLabel pwdEntry = new JLabel(Messages.getString("GuiAdder.28"));  
-		pwdEntry.setFont(new Font("Tahoma", Font.BOLD, 15)); 
-		pwdEntry.setBounds(73, 279, 276, 40);
+		pwdEntry.setFont(new Font("Tahoma", Font.BOLD, 20)); 
+		pwdEntry.setBounds(73, 266, 276, 76);
 		frame.getContentPane().add(pwdEntry);
 		
 		password = new JPasswordField();
 		password.setBounds(400, 279, 422, 47);
 		frame.getContentPane().add(password);
 		password.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel(Messages.getString("GuiAdder.lblNewLabel.text")); //$NON-NLS-1$
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setBounds(73, 317, 276, 47);
+		frame.getContentPane().add(lblNewLabel);
 		
 		
 	}
