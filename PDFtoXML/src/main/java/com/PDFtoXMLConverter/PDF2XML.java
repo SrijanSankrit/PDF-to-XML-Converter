@@ -1,5 +1,8 @@
 package com.PDFtoXMLConverter;
 import java.util.ArrayList;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.pdfbox.pdmodel.PDDocument;
 /**
  * 
@@ -12,6 +15,8 @@ import org.apache.pdfbox.pdmodel.PDDocument;
  */
 
 public class PDF2XML {
+	
+	private static Logger logger = LogManager.getLogger(PDF2XML.class.getName());
 	/**
 	 * 
 	 *  This method checks if the given list of pages <br>
@@ -27,8 +32,10 @@ public class PDF2XML {
 	 */
 	public void convert(PDDocument doc, ArrayList<Integer> pageNos,String fileName) throws Exception
 	{
-		int size = pageNos.size();
 		
+		
+		int size = pageNos.size();
+		logger.info("FileName -->" + fileName);
 		XMLCreator xmlCreator = new XMLCreator(pageNos,fileName);		//Send doc to check whether it is an invoice
 		
 		
@@ -38,6 +45,9 @@ public class PDF2XML {
 			for(int page = 0; page<size ; page++)						//extract data page by page
 			{
 				try{
+				
+				logger.info("\nProcessing Page No. " + page);
+					
 				BusinessDocCreator docCreator = new BusinessDocCreator();
 				
 				BusinessDoc bDoc = docCreator.create(doc.getPage(pageNos.get(page)-1),pageNos.get(page) );
@@ -49,7 +59,7 @@ public class PDF2XML {
 				}
 				catch(Exception e) {
 					//continuing for next pages in case of exception in prior pages 
-					
+					logger.error("Some error occured while processing page " + page);
 				}
 		}
 	

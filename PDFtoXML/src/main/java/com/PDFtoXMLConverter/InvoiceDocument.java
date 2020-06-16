@@ -2,6 +2,9 @@ package com.PDFtoXMLConverter;
 
 import java.util.*;
 import java.io.IOException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
@@ -9,6 +12,8 @@ import org.apache.pdfbox.pdmodel.common.PDRectangle;
 //represents an invoice document, which is a type of the general business document
 
 public class InvoiceDocument extends BusinessDoc {
+	
+	private static Logger logger = LogManager.getLogger(InvoiceDocument.class.getName());
 
 	public InvoiceItemsTable itemsTable;
 	public HashMap<String, String> preamble;
@@ -56,6 +61,8 @@ public class InvoiceDocument extends BusinessDoc {
 		if (lineNumber >= 0) {
 			// Creating an instance of the invoice document
 			InvoiceDocument invDocObj = new InvoiceDocument();
+			logger.info("Invoice Document !");
+			logger.info("Table Found!");
 
 			// Setting all values for this instance
 			invDocObj.docObj = doc;
@@ -78,6 +85,8 @@ public class InvoiceDocument extends BusinessDoc {
 				// Creating an instance of the non standard invoice document
 
 				NonStandardInvoiceDocument docObj = new NonStandardInvoiceDocument();
+				logger.info("Non Standard Invoice Document!");
+				
 
 				// Setting all values for this instance
 				docObj.docObj = doc;
@@ -93,6 +102,8 @@ public class InvoiceDocument extends BusinessDoc {
 			// Creating an instance of the non standard invoice document
 
 			NonStandardInvoiceDocument docObj = new NonStandardInvoiceDocument();
+			logger.info("Non Standard Invoice Document !");
+			
 
 			// Setting all values for this instance
 			docObj.docObj = doc;
@@ -136,6 +147,7 @@ public class InvoiceDocument extends BusinessDoc {
 			preambleBoxes = stripper.createBoxes(preambleLines); // creating boxes out of said lines
 			wordExtractor.extract(preambleBoxes, stripper.classifyStyle(preambleBoxes));
 			preamble = wordExtractor.getKeyAndValuePairs();
+			logger.info("Preamble Extracted!");
 
 			// Summary
 			int numLines = docLines.size();
@@ -149,6 +161,7 @@ public class InvoiceDocument extends BusinessDoc {
 				summaryBoxes = stripper.createBoxes(summaryLines); // creating boxes out of said lines
 				wordExtractor.extract(summaryBoxes, stripper.classifyStyle(summaryBoxes));
 				summary = wordExtractor.getKeyAndValuePairs();
+				logger.info("Summary Extracted!");
 			}
 
 		} else {
@@ -156,7 +169,7 @@ public class InvoiceDocument extends BusinessDoc {
 			List<Box> pageBoxes = stripper.createBoxes(docLines);
 			wordExtractor.extract(pageBoxes, stripper.classifyStyle(pageBoxes));
 			preamble = wordExtractor.getKeyAndValuePairs(); // store everything in
-																							// preamble
+			logger.info("Only Preamble Extracted!");																	// preamble
 			summary = null; // no summary exists
 		}
 
@@ -185,15 +198,18 @@ public class InvoiceDocument extends BusinessDoc {
 		if (preamble != null) {
 
 			xmlCreator.addData(preamble, pages, pageNo);
+			logger.info("Preamble is getting added to the XML");
 
 		}
 		if (itemsTable != null) {
 
 			xmlCreator.addTable(itemsTable.data, pages, pageNo);
+			logger.info("Table is getting added to the XML");
 		}
 		if (summary != null) {
 
 			xmlCreator.addData(summary, pages, pageNo);
+			logger.info("Summary is getting added to the XML");
 		}
 	}
 

@@ -3,10 +3,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import java.util.List;
 
 public class NonStandardInvoiceDocument extends BusinessDoc {
+	
+	private static Logger logger = LogManager.getLogger(NonStandardInvoiceDocument.class.getName());
 	
 	//catch-all class for documents that are not classified as invoice
 	public List<HashMap<String,String>> preambles = null;
@@ -52,6 +57,7 @@ public class NonStandardInvoiceDocument extends BusinessDoc {
 					preambleBoxes = stripper.createBoxes(preambleLines);		//creating boxes out of said lines
 					wordExtractor.extract(preambleBoxes, stripper.classifyStyle(preambleBoxes));
 					HashMap<String, String> preamble = wordExtractor.getKeyAndValuePairs();
+					logger.info("Preamble Extracted!");
 					
 					if(preambles == null)
 						preambles = new ArrayList<HashMap<String,String>>();
@@ -96,6 +102,7 @@ public class NonStandardInvoiceDocument extends BusinessDoc {
 			{	
 						
 				nsTables = null;	//no table exists
+				logger.info("No table found");
 				tableEndLine = -1;
 				//create boxes in the entire page
 				if(preambles == null)
@@ -135,6 +142,7 @@ public class NonStandardInvoiceDocument extends BusinessDoc {
 			nsTable.extract(tableLines);
 			//add table to list of tables on this page
 			nsTables.add(nsTable);
+			logger.info("table extracted!");
 	}
 	public void createXML(XMLCreator xmlCreator, ArrayList<Integer> pages,int pageNo) throws Exception
 	{
@@ -142,16 +150,20 @@ public class NonStandardInvoiceDocument extends BusinessDoc {
 		if(preambles != null)
 		{
 			for(int i = 0 ; i<preambles.size() ; i++)
-				xmlCreator.addData(preambles.get(i),pages,pageNo);	
+				xmlCreator.addData(preambles.get(i),pages,pageNo);
+			logger.info("Preamble is getting added to the XMl!");
+			
 		}
 		if(nsTables != null)
 		{
 			for(int i = 0 ; i<nsTables.size() ; i++)
 				xmlCreator.addTable(nsTables.get(i).data,pages,pageNo);
+			logger.info("Table(s) are getting added to the XML!");
 		}
 		if(summary!= null)
 		{
-			xmlCreator.addData(summary,pages,pageNo);		
+			xmlCreator.addData(summary,pages,pageNo);
+			logger.info("Summary is getting added to the XML");
 		}
 	}
 		
