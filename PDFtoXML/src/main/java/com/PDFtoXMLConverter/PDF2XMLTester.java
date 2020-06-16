@@ -47,9 +47,10 @@ public class PDF2XMLTester {
 					 }
 					 
 					 int size = arr.size();
-					 for(int i=0;i<size;i++) {
-				    	 if(arr.get(i)>document.getNumberOfPages() ||arr.get(i)<1) {
+					 for(int PageC=0;PageC<size;PageC++) {
+				    	 if(arr.get(PageC)>document.getNumberOfPages() ||arr.get(PageC)<1) {
 				    		 document.close();
+				    		 Logger.error("Wrong Page indices input!");
 						      return Messages.getString("PDF2XMLTester.1"); //prompting incorrect selection of pages
 				    	 }
 				     }

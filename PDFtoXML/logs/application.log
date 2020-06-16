@@ -1,13 +1,11 @@
-[INFO ] 2020-06-16 16:24:661 com.PDFtoXMLConverter.GuiAdder:132 - File opened successfully.
-[INFO ] 2020-06-16 16:24:667 com.PDFtoXMLConverter.GuiAdder:162 - All pages to be extracted!
-[INFO ] 2020-06-16 16:24:719 com.PDFtoXMLConverter.PDF2XML:40 - FileName -->C:\Users\HP\Desktop\Demo Folder\Demo\Input\PayPal_ Transaction Details_Order# - TX76017634.pdf
-[INFO ] 2020-06-16 16:24:886 com.PDFtoXMLConverter.PDF2XML:51 - 
+[INFO ] 2020-06-16 23:56:121 com.PDFtoXMLConverter.GuiAdder:138 - File opened successfully.
+[INFO ] 2020-06-16 23:56:125 com.PDFtoXMLConverter.GuiAdder:168 - All pages to be extracted!
+[INFO ] 2020-06-16 23:56:145 com.PDFtoXMLConverter.PDF2XML:40 - FileName -->C:\Users\HP\Desktop\sample.pdf
+[INFO ] 2020-06-16 23:56:269 com.PDFtoXMLConverter.PDF2XML:51 - 
 Processing Page No. 0
-[INFO ] 2020-06-16 16:24:363 com.PDFtoXMLConverter.InvoiceDocument:105 - Non Standard Invoice Document !
-[INFO ] 2020-06-16 16:24:368 com.PDFtoXMLConverter.NonStandardInvoiceDocument:105 - No table found
-[INFO ] 2020-06-16 16:24:385 com.PDFtoXMLConverter.NonStandardInvoiceDocument:154 - Preamble is getting added to the XMl!
-[INFO ] 2020-06-16 16:24:385 com.PDFtoXMLConverter.PDF2XML:51 - 
-Processing Page No. 1
-[INFO ] 2020-06-16 16:24:400 com.PDFtoXMLConverter.InvoiceDocument:105 - Non Standard Invoice Document !
-[INFO ] 2020-06-16 16:24:403 com.PDFtoXMLConverter.NonStandardInvoiceDocument:105 - No table found
-[INFO ] 2020-06-16 16:24:420 com.PDFtoXMLConverter.NonStandardInvoiceDocument:154 - Preamble is getting added to the XMl!
+[INFO ] 2020-06-16 23:56:573 com.PDFtoXMLConverter.InvoiceDocument:105 - Non Standard Invoice Document !
+[INFO ] 2020-06-16 23:56:579 com.PDFtoXMLConverter.NonStandardInvoiceDocument:145 - table extracted!
+[INFO ] 2020-06-16 23:56:580 com.PDFtoXMLConverter.NonStandardInvoiceDocument:60 - Preamble Extracted!
+[INFO ] 2020-06-16 23:56:592 com.PDFtoXMLConverter.NonStandardInvoiceDocument:154 - Preamble is getting added to the XMl!
+[INFO ] 2020-06-16 23:56:602 com.PDFtoXMLConverter.NonStandardInvoiceDocument:161 - Table(s) are getting added to the XML!
+[INFO ] 2020-06-16 23:56:658 com.PDFtoXMLConverter.NonStandardInvoiceDocument:166 - Summary is getting added to the XML
