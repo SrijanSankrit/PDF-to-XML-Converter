@@ -78,12 +78,12 @@ public class GuiAdder {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setFont(new Font(Messages.getString("GuiAdder.FontTahoma"), Font.PLAIN, 20)); 
+		frame.getContentPane().setFont(new Font(Messages.getString("GuiAdder.FontTahoma"), Font.PLAIN, 20));  
 		frame.setBounds(100, 100, 858, 562);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton(Messages.getString("GuiAdder.1")); 
+		JButton btnNewButton = new JButton(Messages.getString("GuiAdder.1"));  
 		final JButton btnNewFile = new JButton(Messages.getString("GuiAdder.2")); 
 		
 		
@@ -122,20 +122,20 @@ public class GuiAdder {
 				String S=txtEnterFileName.getText() ;
 				String pgs=textEnterPages.getText();
 				String pw=password.getText();
-				if(pw!=Messages.getString("GuiAdder.6")){ 
+				if(pw!=Messages.getString("GuiAdder.6")){  
 					try {
 						 PDDocument document ;
 						 File file = new File(S);
 						 
 						 document = PDDocument.load(file,pw);
 						 
-						 logger.info("Password protected file");
+						 logger.info(Messages.getString("GuiAdder.36")); 
 						 
 						 document.close();
 					}
 					catch(IOException e1) {
-						logger.error("Wrong Password Entered");
-						JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.7")); 
+						logger.error(Messages.getString("GuiAdder.37")); 
+						JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.7"));  
 					}
 				}
 				else {
@@ -143,13 +143,13 @@ public class GuiAdder {
 						 PDDocument document ;
 						 File file = new File(S);
 						 document = PDDocument.load(file,pw);
-						 
+						 logger.info(Messages.getString("GuiAdder.39")); 
 						 document.close();
 					}
 					catch(IOException e1) {
-						logger.info("Password Protected File");
-						logger.warn("Password not entered!");
-						JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.8"));
+						logger.info(Messages.getString("GuiAdder.40")); 
+						logger.warn(Messages.getString("GuiAdder.41")); 
+						JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.8")); 
 					}
 					
 				}
@@ -159,11 +159,11 @@ public class GuiAdder {
 				
 				if((pgs.charAt(0)=='*' && pgs.length()==1)) {
 					 
-					 logger.info("All pages to be extracted!");
+					 logger.info(Messages.getString("GuiAdder.43")); 
 					 PDDocument document ;
 					 try{
 						 File file = new File(S);
-						 if(pw!=Messages.getString("GuiAdder.9")) { 
+						 if(pw!=Messages.getString("GuiAdder.9")) {  
 							 document = PDDocument.load(file,pw);
 							 document.setAllSecurityToBeRemoved(true);
 						 }
@@ -182,7 +182,7 @@ public class GuiAdder {
 					 }
 					 
 					catch(IOException eio) {
-						JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.10")); 
+						JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.10"));  
 						
 					}
 				}
@@ -195,7 +195,7 @@ public class GuiAdder {
 							al.add(Integer.parseInt(str[i]));
 						}
 						catch(NumberFormatException nfe) {
-							JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.12")); 
+							JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.12"));
 							return ;
 						}
 					}
@@ -205,22 +205,22 @@ public class GuiAdder {
 				}
 				}
 				catch(Exception e1) {
-					JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.13")); 
+					JOptionPane.showMessageDialog(null, Messages.getString("GuiAdder.13"));
 				}
 			}
 		});
-		btnNewButton.setFont(new Font(Messages.getString("GuiAdder.14"), Font.PLAIN, 20)); 
+		btnNewButton.setFont(new Font(Messages.getString("GuiAdder.14"), Font.PLAIN, 20));  
 		btnNewButton.setBounds(306, 442, 202, 54);
 		frame.getContentPane().add(btnNewButton);
 		
 		txtEnterFileName = new JTextField();
-		txtEnterFileName.setFont(new Font(Messages.getString("GuiAdder.15"), Font.PLAIN, 25)); 
+		txtEnterFileName.setFont(new Font(Messages.getString("GuiAdder.15"), Font.PLAIN, 25));  
 		txtEnterFileName.setBounds(400, 81, 338, 40);
 		frame.getContentPane().add(txtEnterFileName);
 		txtEnterFileName.setColumns(10);
 		
-		JLabel labelFileName = new JLabel(Messages.getString("GuiAdder.16")); 
-		labelFileName.setFont(new Font(Messages.getString("GuiAdder.17"), Font.PLAIN, 25)); 
+		JLabel labelFileName = new JLabel(Messages.getString("GuiAdder.16"));  
+		labelFileName.setFont(new Font(Messages.getString("GuiAdder.17"), Font.PLAIN, 25));  
 		labelFileName.setBounds(73, 81, 287, 40);
 		frame.getContentPane().add(labelFileName);
 		
@@ -231,24 +231,24 @@ public class GuiAdder {
 		frame.getContentPane().add(textEnterPages);
 		textEnterPages.setColumns(10);
 		
-		JLabel labelPageNum = new JLabel(Messages.getString("GuiAdder.20"));
-		labelPageNum.setFont(new Font(Messages.getString("GuiAdder.21"), Font.PLAIN, 15)); 
+		JLabel labelPageNum = new JLabel(Messages.getString("GuiAdder.20")); 
+		labelPageNum.setFont(new Font(Messages.getString("GuiAdder.21"), Font.PLAIN, 15));  
 		labelPageNum.setBounds(73, 146, 309, 40);
 		frame.getContentPane().add(labelPageNum);
 		
 		JLabel title = new JLabel(Messages.getString("GuiAdder.22")); 
 		title.setBackground(new Color(0, 128, 0));
 		title.setHorizontalAlignment(SwingConstants.CENTER);
-		title.setFont(new Font(Messages.getString("GuiAdder.23"), Font.BOLD | Font.ITALIC, 30)); 
+		title.setFont(new Font(Messages.getString("GuiAdder.23"), Font.BOLD | Font.ITALIC, 30));  
 		title.setBounds(21, 10, 801, 54);
 		frame.getContentPane().add(title);
 		
-		JLabel example = new JLabel(Messages.getString("GuiAdder.24")); 
-		example.setFont(new Font(Messages.getString("GuiAdder.25"), Font.PLAIN, 15));
+		JLabel example = new JLabel(Messages.getString("GuiAdder.24"));  
+		example.setFont(new Font(Messages.getString("GuiAdder.25"), Font.PLAIN, 15)); 
 		example.setBounds(73, 184, 287, 32);
 		frame.getContentPane().add(example);
 		
-		JLabel allPages = new JLabel(Messages.getString("GuiAdder.26"));
+		JLabel allPages = new JLabel(Messages.getString("GuiAdder.26")); 
 		allPages.setFont(new Font(Messages.getString("GuiAdder.27"), Font.PLAIN, 15));
 		allPages.setBounds(73, 206, 293, 32);
 		frame.getContentPane().add(allPages);
@@ -257,7 +257,7 @@ public class GuiAdder {
 		btnNewFile.setBounds(737, 81, 85, 40);
 		frame.getContentPane().add(btnNewFile);
 		
-		JLabel pwdEntry = new JLabel(Messages.getString("GuiAdder.28"));
+		JLabel pwdEntry = new JLabel(Messages.getString("GuiAdder.28")); 
 		pwdEntry.setFont(new Font(Messages.getString("GuiAdder.29"), Font.PLAIN, 15)); 
 		pwdEntry.setBounds(73, 279, 276, 40);
 		frame.getContentPane().add(pwdEntry);

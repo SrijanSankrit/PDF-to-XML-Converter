@@ -1,10 +1,9 @@
-[INFO ] 2020-06-15 20:12:913 com.PDFtoXMLConverter.GuiAdder:132 - Password protected file
-[INFO ] 2020-06-15 20:12:915 com.PDFtoXMLConverter.GuiAdder:162 - All pages to be extracted!
-[INFO ] 2020-06-15 20:12:939 com.PDFtoXMLConverter.PDF2XML:38 - FileName -->/Users/srijan/Desktop/PDF-to-XML-Converter/PDFtoXML/samplePDFs/invoice4-protected-pw-mypassword.pdf
-[INFO ] 2020-06-15 20:12:013 com.PDFtoXMLConverter.PDF2XML:49 - 
+[INFO ] 2020-06-16 11:37:912 com.PDFtoXMLConverter.GuiAdder:132 - File opened successfully.
+[INFO ] 2020-06-16 11:37:920 com.PDFtoXMLConverter.GuiAdder:162 - All pages to be extracted!
+[INFO ] 2020-06-16 11:37:974 com.PDFtoXMLConverter.PDF2XML:38 - FileName -->C:\Users\HP\Desktop\Demo Folder\samples\amazon-merged.pdf
+[INFO ] 2020-06-16 11:37:166 com.PDFtoXMLConverter.PDF2XML:49 - 
 Processing Page No. 0
-[INFO ] 2020-06-15 20:12:328 com.PDFtoXMLConverter.InvoiceDocument:64 - Invoice Document !
-[INFO ] 2020-06-15 20:12:328 com.PDFtoXMLConverter.InvoiceDocument:65 - Table Found!
-[INFO ] 2020-06-15 20:12:335 com.PDFtoXMLConverter.InvoiceDocument:150 - Preamble Extracted!
-[INFO ] 2020-06-15 20:12:342 com.PDFtoXMLConverter.InvoiceDocument:201 - Preamble is getting added to the XML
-[INFO ] 2020-06-15 20:12:346 com.PDFtoXMLConverter.InvoiceDocument:207 - Table is getting added to the XML
+[INFO ] 2020-06-16 11:37:215 com.PDFtoXMLConverter.PDF2XML:49 - 
+Processing Page No. 1
+[INFO ] 2020-06-16 11:37:309 com.PDFtoXMLConverter.PDF2XML:49 - 
+Processing Page No. 2
