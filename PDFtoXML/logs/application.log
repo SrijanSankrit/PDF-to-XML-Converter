@@ -1,9 +1,13 @@
-[INFO ] 2020-06-16 11:37:912 com.PDFtoXMLConverter.GuiAdder:132 - File opened successfully.
-[INFO ] 2020-06-16 11:37:920 com.PDFtoXMLConverter.GuiAdder:162 - All pages to be extracted!
-[INFO ] 2020-06-16 11:37:974 com.PDFtoXMLConverter.PDF2XML:38 - FileName -->C:\Users\HP\Desktop\Demo Folder\samples\amazon-merged.pdf
-[INFO ] 2020-06-16 11:37:166 com.PDFtoXMLConverter.PDF2XML:49 - 
+[INFO ] 2020-06-16 16:24:661 com.PDFtoXMLConverter.GuiAdder:132 - File opened successfully.
+[INFO ] 2020-06-16 16:24:667 com.PDFtoXMLConverter.GuiAdder:162 - All pages to be extracted!
+[INFO ] 2020-06-16 16:24:719 com.PDFtoXMLConverter.PDF2XML:40 - FileName -->C:\Users\HP\Desktop\Demo Folder\Demo\Input\PayPal_ Transaction Details_Order# - TX76017634.pdf
+[INFO ] 2020-06-16 16:24:886 com.PDFtoXMLConverter.PDF2XML:51 - 
 Processing Page No. 0
-[INFO ] 2020-06-16 11:37:215 com.PDFtoXMLConverter.PDF2XML:49 - 
+[INFO ] 2020-06-16 16:24:363 com.PDFtoXMLConverter.InvoiceDocument:105 - Non Standard Invoice Document !
+[INFO ] 2020-06-16 16:24:368 com.PDFtoXMLConverter.NonStandardInvoiceDocument:105 - No table found
+[INFO ] 2020-06-16 16:24:385 com.PDFtoXMLConverter.NonStandardInvoiceDocument:154 - Preamble is getting added to the XMl!
+[INFO ] 2020-06-16 16:24:385 com.PDFtoXMLConverter.PDF2XML:51 - 
 Processing Page No. 1
-[INFO ] 2020-06-16 11:37:309 com.PDFtoXMLConverter.PDF2XML:49 - 
-Processing Page No. 2
+[INFO ] 2020-06-16 16:24:400 com.PDFtoXMLConverter.InvoiceDocument:105 - Non Standard Invoice Document !
+[INFO ] 2020-06-16 16:24:403 com.PDFtoXMLConverter.NonStandardInvoiceDocument:105 - No table found
+[INFO ] 2020-06-16 16:24:420 com.PDFtoXMLConverter.NonStandardInvoiceDocument:154 - Preamble is getting added to the XMl!

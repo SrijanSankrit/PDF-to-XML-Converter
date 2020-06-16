@@ -31,8 +31,8 @@ import java.time.format.DateTimeFormatter;
  */
 public class XMLCreator {
 	
-	private String name;																	// holds filename for the XML Generated
-	private int tableId;																	//holds table id for all tables in PDF 
+	private String name;													// holds filename for the XML Generated
+	private int tableId;													//holds table id for all tables in PDF 
 	
 	/**
 	 * 

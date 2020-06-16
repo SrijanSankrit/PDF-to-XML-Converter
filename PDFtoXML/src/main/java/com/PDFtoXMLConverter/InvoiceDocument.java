@@ -56,7 +56,7 @@ public class InvoiceDocument extends BusinessDoc {
 
 			lineNumber = -1;
 		}
-
+		
 		// if the table column headings exists, checking if rows exist -
 		if (lineNumber >= 0) {
 			// Creating an instance of the invoice document

@@ -1,5 +1,7 @@
 package com.PDFtoXMLConverter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,7 +35,7 @@ public class PDF2XML {
 	public void convert(PDDocument doc, ArrayList<Integer> pageNos,String fileName) throws Exception
 	{
 		
-		
+		Collections.sort(pageNos);
 		int size = pageNos.size();
 		logger.info("FileName -->" + fileName);
 		XMLCreator xmlCreator = new XMLCreator(pageNos,fileName);		//Send doc to check whether it is an invoice
@@ -47,7 +49,7 @@ public class PDF2XML {
 				try{
 				
 				logger.info("\nProcessing Page No. " + page);
-					
+				
 				BusinessDocCreator docCreator = new BusinessDocCreator();
 				
 				BusinessDoc bDoc = docCreator.create(doc.getPage(pageNos.get(page)-1),pageNos.get(page) );
@@ -59,7 +61,7 @@ public class PDF2XML {
 				}
 				catch(Exception e) {
 					//continuing for next pages in case of exception in prior pages 
-					logger.error("Some error occured while processing page " + page);
+					logger.error("Page "+page+" is empty");
 				}
 		}
 	

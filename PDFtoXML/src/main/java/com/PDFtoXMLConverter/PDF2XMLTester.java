@@ -16,8 +16,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
  */
 public class PDF2XMLTester {
 	
-
-	/**
+	private static Logger Logger = LogManager.getLogger(PDF2XMLTester.class.getName());	/**
 	 * 
 	 *  This method checks if the given list of pages <br>
 	 * holds correct for the PDF specified<br>
@@ -67,7 +66,7 @@ public class PDF2XMLTester {
 				 {
 					 //prompting to check the fileName
 					 document.close();
-					
+					 Logger.error("Error occured while processing whole PDF");
 					 return Messages.getString("PDF2XMLTester.3"); 
 				 }
 		 }			 
