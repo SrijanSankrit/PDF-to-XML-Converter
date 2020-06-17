@@ -12,6 +12,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -33,7 +35,7 @@ public class XMLCreator {
 	
 	private String name;													// holds filename for the XML Generated
 	private int tableId;													//holds table id for all tables in PDF 
-	
+	private static Logger logger = LogManager.getLogger(InvoiceDocument.class.getName());
 	/**
 	 * 
 	 * This constructor serves to generate XML file <br>
@@ -208,17 +210,14 @@ public class XMLCreator {
 			
 
 		} catch (SAXException  e1) {
-			e1.printStackTrace();
+			logger.error("Error in XML parsing!");
 		}
 		 catch ( ParserConfigurationException e2) {
-				e2.printStackTrace();
-			}
+			 logger.error("Error in XML parsing!");			}
 		 catch ( IOException  e3) {
-				e3.printStackTrace();
-			}
+			 logger.error("Error in reading PDF!");			}
 		 catch ( TransformerException e4) {
-				e4.printStackTrace();
-			}
+			 logger.error("Error in transforming XML!");			}
 	}
 	
 	
@@ -297,17 +296,14 @@ public class XMLCreator {
 			
 
 		} catch (SAXException  e1) {
-			e1.printStackTrace();
+			logger.error("Error in XML parsing!");
 		}
 		 catch ( ParserConfigurationException e2) {
-				e2.printStackTrace();
-			}
+			 logger.error("Error in XML parsing!");			}
 		 catch ( IOException  e3) {
-				e3.printStackTrace();
-			}
+			 logger.error("Error in reading PDF!");			}
 		 catch ( TransformerException e4) {
-				e4.printStackTrace();
-			}
+			 logger.error("Error in transforming XML!");			}
 	}
 
 }

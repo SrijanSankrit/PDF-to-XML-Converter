@@ -1,0 +1,11 @@
+[INFO ] 2020-06-17 12:11:429 com.PDFtoXMLConverter.GuiAdder:160 - File opened successfully.
+[INFO ] 2020-06-17 12:11:433 com.PDFtoXMLConverter.GuiAdder:176 - All pages to be extracted!
+[INFO ] 2020-06-17 12:11:454 com.PDFtoXMLConverter.PDF2XML:40 - FileName -->C:\Users\HP\Desktop\sample.pdf
+[INFO ] 2020-06-17 12:11:559 com.PDFtoXMLConverter.PDF2XML:51 - 
+Processing Page No. 0
+[INFO ] 2020-06-17 12:11:895 com.PDFtoXMLConverter.InvoiceDocument:105 - Non Standard Invoice Document !
+[INFO ] 2020-06-17 12:11:901 com.PDFtoXMLConverter.NonStandardInvoiceDocument:145 - table extracted!
+[INFO ] 2020-06-17 12:11:902 com.PDFtoXMLConverter.NonStandardInvoiceDocument:60 - Preamble Extracted!
+[INFO ] 2020-06-17 12:11:912 com.PDFtoXMLConverter.NonStandardInvoiceDocument:154 - Preamble is getting added to the XMl!
+[INFO ] 2020-06-17 12:11:923 com.PDFtoXMLConverter.NonStandardInvoiceDocument:161 - Table(s) are getting added to the XML!
+[INFO ] 2020-06-17 12:11:934 com.PDFtoXMLConverter.NonStandardInvoiceDocument:166 - Summary is getting added to the XML
