@@ -1,51 +1,149 @@
 package com.PDFtoXMLConverter;
 import java.util.*;
 import org.apache.pdfbox.text.TextPosition;
-//PDFTextStripper divides the text in a document into blocks. Reprsents one such block
+
+/**
+ * PDFTextStripper divides the text in a document into blocks. Class that represents one such block
+ * @author BHAVYA SHARMA
+ */
+
+
 public class StringBlock implements Comparable<StringBlock> {
 
-	public float startX;
-	public float endX;
-	public float startY;
-	public float endY;
-	public float width;
-	public float height;
-	public List<TextPosition> textPositions;	//stores all the text positions present in the block
-	public String text ;
-	public int fontChange = -1;
-	
-	public String toString()
+	private float startX;					//Starting X position of block
+	private float endX;						//Ending X position of block
+	private float startY;					//Starting Y position of block
+	private float endY;						//Ending Y position of block
+	private float width;					//Width of block	
+	private float height;					//Height of block
+	private List<TextPosition> textPositions; // stores all the text positions present in the block
+	private String text;					//Text present in block
+	private int fontChange ;				//Whether block has a font change
+
+	/**
+	 * Constructor
+	 */
+	public StringBlock()
 	{
-		String s = text	;
-		return s;
+		setFontChange(-1);		
 	}
 	
-	public int compareTo(StringBlock block)			//comparision with another block based on their Y positions
+	
+	@Override
+	public int compareTo(StringBlock block) // comparison with another block based on their Y positions
 	{
-		if(this.startY < block.startY)
+		if (this.getStartY() < block.getStartY()) {
 			return -1;
-		else if(this.startY == block.startY)
+		} else if (this.getStartY() == block.getStartY()) {
 			return 0;
-		else 
+		} else {
 			return 1;
-		
+		}
+
 	}
-	public int hasColon()			//checks if the text in this block contains a colon and returns index of char after colon
+
+	/**
+	 * Method that checks if the text in this block contains a colon 
+	 * @return index of character after colon
+	 */
+	public int hasColon() 
 	{
-		if(this.text.contains(":"))
-			return this.text.indexOf(":") + 1;
-		else 
-			return -1;		
+		if (this.getText().contains(":")) {
+			return this.getText().indexOf(":") + 1;
+		} else {
+			return -1;
+		}
 	}
-	public int isBold()			//checks if the text in this block is bold and returns char after bold ends
+
+	/**
+	 * Method that checks if the text in this block is bold
+	 * @return index of character after last bold character
+	 */
+	public int isBold() 
 	{
 		int count = 0;
-		int size = textPositions.size();
-		while(count < size && textPositions.get(count).getFont().toString().contains("Bold"))
+		int size = this.getTextPositions().size();
+		while (count < size && this.getTextPositions().get(count).getFont().toString().contains("Bold")) {
 			count++;
-		if(count == 0)
+		}
+		if (count == 0) {
 			count--;
+		}
 		return count;
 	}
-		
+
+	//Getters and Setters
+	
+	public float getStartX() {
+		return startX;
+	}
+
+	public void setStartX(float startX) {
+		this.startX = startX;
+	}
+
+	public float getEndX() {
+		return endX;
+	}
+
+	public void setEndX(float endX) {
+		this.endX = endX;
+	}
+
+	public float getStartY() {
+		return startY;
+	}
+
+	public void setStartY(float startY) {
+		this.startY = startY;
+	}
+
+	public float getEndY() {
+		return endY;
+	}
+
+	public void setEndY(float endY) {
+		this.endY = endY;
+	}
+
+	public float getWidth() {
+		return width;
+	}
+
+	public void setWidth(float width) {
+		this.width = width;
+	}
+
+	public float getHeight() {
+		return height;
+	}
+
+	public void setHeight(float height) {
+		this.height = height;
+	}
+
+	public List<TextPosition> getTextPositions() {
+		return textPositions;
+	}
+
+	public void setTextPositions(List<TextPosition> textPositions) {
+		this.textPositions = textPositions;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public int getFontChange() {
+		return fontChange;
+	}
+
+	public void setFontChange(int fontChange) {
+		this.fontChange = fontChange;
+	}
+
 }

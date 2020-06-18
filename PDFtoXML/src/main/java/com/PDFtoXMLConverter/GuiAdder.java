@@ -22,7 +22,6 @@ import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
@@ -39,7 +38,7 @@ import javax.swing.JTree;
  */
 public class GuiAdder {
 	
-	private static Logger logger = LogManager.getLogger(GuiAdder.class.getName());
+	private static Logger logger;
 
 	private JFrame frame;
 	private JTextField txtEnterFileName;
@@ -50,15 +49,17 @@ public class GuiAdder {
 	/**
 	 * Launch the application.
 	 */
-	private static Logger Logger = LogManager.getLogger(PDF2XMLTester.class.getName());
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					GuiAdder window = new GuiAdder();
+					CacheManager.fillCache();
+					logger = CacheManager.getLogger();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
-					Logger.fatal(Messages.getString("GuiAdder.0"));
+					if(logger != null)
+					logger.fatal(Messages.getString("GuiAdder.0"));
 				}
 			}
 		});
@@ -78,6 +79,7 @@ public class GuiAdder {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font(Messages.getString("GuiAdder.FontTahoma"), Font.PLAIN, 20));  
 		frame.setBounds(100, 100, 858, 562);
@@ -296,4 +298,3 @@ public class GuiAdder {
 		
 	}
 }
-

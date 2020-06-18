@@ -3,8 +3,6 @@ package com.PDFtoXMLConverter;
 import java.util.*;
 //extracts words from the preamble and summary of the document
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.pdfbox.text.TextPosition;
 
 /**
@@ -63,17 +61,17 @@ public class BusinessWordExtractor {
 				StringBlock lastBlock = null;
 				for (StringBlock block : box.getBoxBlocks()) {
 					if (previousTextFont == null)
-						previousTextFont = block.textPositions.get(0).getFont().toString();
+						previousTextFont = block.getTextPositions().get(0).getFont().toString();
 
-					for (int textIndex = 1; textIndex < block.textPositions.size(); textIndex++) {
-						String currFont = block.textPositions.get(textIndex).getFont().toString();
+					for (int textIndex = 1; textIndex < block.getTextPositions().size(); textIndex++) {
+						String currFont = block.getTextPositions().get(textIndex).getFont().toString();
 
 						if (previousTextFont.length() > currFont.length() && previousTextFont.contains(currFont)) {
 
 							if (textIndex == 1) {
-								lastBlock.fontChange = lastBlock.text.length();
+								lastBlock.setFontChange(lastBlock.getText().length());
 							} else {
-								block.fontChange = textIndex;
+								block.setFontChange(textIndex);
 							}
 
 							previousTextFont = currFont;
@@ -111,14 +109,14 @@ public class BusinessWordExtractor {
 					checker = currStringBlock.isBold();
 
 				} else if (classifier == MyConstants.FontChange())
-					checker = currStringBlock.fontChange;
+					checker = currStringBlock.getFontChange();
 
 				if (checker != -1) {
 
 					// KEY - VALUE in the same line
-					if (checker < currStringBlock.text.length()) {
-						String key = currStringBlock.text.substring(0, checker - offSet).strip();
-						String value = currStringBlock.text.substring(checker).strip();
+					if (checker < currStringBlock.getText().length()) {
+						String key = currStringBlock.getText().substring(0, checker - offSet).strip();
+						String value = currStringBlock.getText().substring(checker).strip();
 						keyAndValuePairs.put(key, value);
 						lineInBox++;
 					}
@@ -136,13 +134,13 @@ public class BusinessWordExtractor {
 							else if (classifier == MyConstants.BoldFont())
 								checker2 = nextStringBlock.isBold();
 							else if (classifier == MyConstants.FontChange())
-								checker2 = nextStringBlock.fontChange;
+								checker2 = nextStringBlock.getFontChange();
 
 							// Now, we add everything to the value string until we encounter a bold
 							// StringBlock
 							if (checker2 != -1)
 								break;
-							Value = Value.concat(nextStringBlock.text + " ");
+							Value = Value.concat(nextStringBlock.getText() + " ");
 							lastLineOfValue++;
 
 						}
@@ -150,7 +148,7 @@ public class BusinessWordExtractor {
 						lineInBox = lastLineOfValue;
 						if (Value != "") {
 
-							String Key = currStringBlock.text.substring(0, currStringBlock.text.length() - offSet)
+							String Key = currStringBlock.getText().substring(0, currStringBlock.getText().length() - offSet)
 									.strip();
 
 							keyAndValuePairs.put(Key, Value);
@@ -164,7 +162,7 @@ public class BusinessWordExtractor {
 
 					String key = "Text" + textCount;
 					textCount++;
-					String value = currStringBlock.text;
+					String value = currStringBlock.getText();
 					keyAndValuePairs.put(key, value);
 					lineInBox++;
 				}

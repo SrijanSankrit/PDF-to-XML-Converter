@@ -1,19 +1,26 @@
 package com.PDFtoXMLConverter;
+
 import java.io.IOException;
-import java.util.ArrayList;
-import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 
-
-//creates an invoice document using its check and create function
-//if the document isn't of said type, returns null
+/**
+ * Class that checks what type of document is received and returns an instance of the same
+ * Checks whether the document is an invoice. If not, returns instance of non standard invoice doc
+ * @author BHAVYA SHARMA
+ * 
+ */
 
 public class BusinessDocCreator {
 
-	public BusinessDoc create(PDPage doc, int pageNos) throws IOException 
-	{
-		BusinessDoc bDoc = InvoiceDocument.checkNcreate(doc, pageNos);
-		return bDoc ;		
-	}	
+	/**
+	 *@param doc Page to be processed 
+	 *@param pageNo Page number of said page 
+	 *@return Instance of specific subclass of business document 
+	 */
 	
+	public BusinessDoc create(PDPage doc, int pageNo) throws Exception {
+		BusinessDoc bDoc = InvoiceDocument.checkNcreate(doc, pageNo);
+		return bDoc;
+	}
+
 }

@@ -35,7 +35,7 @@ public class XMLCreator {
 	
 	private String name;													// holds filename for the XML Generated
 	private int tableId;													//holds table id for all tables in PDF 
-	private static Logger logger = LogManager.getLogger(InvoiceDocument.class.getName());
+	
 	/**
 	 * 
 	 * This constructor serves to generate XML file <br>
@@ -140,6 +140,7 @@ public class XMLCreator {
 	 */
 	public void addData(HashMap<String, String> arr, ArrayList<Integer> pages,int pageId) throws Exception {
 
+		Logger logger = CacheManager.getLogger();
 		String filePath = name;
 		File xmlFile = new File(filePath);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -237,6 +238,9 @@ public class XMLCreator {
 	 * 
 	 */
 	public void addTable(List<HashMap<String, String>> arr, ArrayList<Integer> pages,int pageId) throws Exception {
+		
+		Logger logger = CacheManager.getLogger();
+		
 		String filePath = name;
 		File xmlFile = new File(filePath);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
