@@ -8,8 +8,16 @@
   3. Kushagra Pandey (IITG)
 
 ##  **Idea**
+ 
+To extract business information from a PDF document and convert it into an XML document.
 
-#### To extract business information from a PDF document and convert it into an XML document.
+#### **Product Description**
+
+Our product can be used to convert various business documents, with support for multiple page PDF conversion and password-encrypted PDF conversion. It uses a config file for detecting a table in a typical invoice.
+User has the option to supply his custom words before extraction.
+
+Not a standard invoice? Don't worry, Our product is capable of converting non-standard invoice document into proper structured XML Document.
+
 
 ## **Libraries used**
 
@@ -28,9 +36,9 @@ Provided for easy usage and reduced errors in file.
 
 ## Instructions For GUI
 
-1. Open the folder named **Converter** which has the jar file along with properties file.
-2. User has option to edit the keywords for table extraction inside the config.properties file.
-3. Open the jar file named. PDFtoXML.jar
+1. Open the folder named **Converter** which has **PDFtoXML.jar** file along with some properties files.
+2. User has option to edit the keywords for table extraction inside the **config.properties** file.
+3. Open the jar file named PDFtoXML.jar
 4. Select the PDF file to be extracted by 'Choose' button.
 5. Select the pages to be extracted or enter * for all pages in the file.
 6. Add the password only if required.
