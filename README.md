@@ -28,13 +28,7 @@ Not a standard invoice? Don't worry, Our product is capable of converting non-st
 [![Log4j2 Version](https://img.shields.io/badge/WindowBuilder-1.9.2-brightgreen.svg)](https://projects.eclipse.org/projects/tools.windowbuilder/releases/1.9.2)
 [![SWT Version](https://img.shields.io/badge/Log4j2-2.11.1-brightgreen.svg)](https://logging.apache.org/log4j/2.x/)
 
-## Team-1
-
-## GUI and Command Line Usage
-
-Provided for easy usage and reduced errors in file.
-
-## Instructions For GUI
+## Instructions for using our product
 
 1. Open the folder named **Converter** which has **PDFtoXML.jar** file along with some properties files.
 2. User has option to edit the keywords for table extraction inside the **config.properties** file.
