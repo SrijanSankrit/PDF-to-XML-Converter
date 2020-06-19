@@ -1,7 +1,7 @@
 # PDF-to-XML-Converter
 # Project under CITI Summer Intern Pune 
 
-### Team Members -->
+### **Team Members**
 
   1. Srijan Sankrit (IITG)
   2. Bhavya Sharma (IITG)
