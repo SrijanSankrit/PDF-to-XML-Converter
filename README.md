@@ -20,10 +20,10 @@ Provided for easy usage and reduced errors in file.
 
 ## Instructions For GUI
 
-1. Keep all the properties file together with the jar file.
-2. User has option to keep his/her custom keywords for table inside the config.properties file.
-3. Open the jar file.
+1. Open the folder named **Converter** which has the jar file along with properties file.
+2. User has option to edit the keywords for table extraction inside the config.properties file.
+3. Open the jar file named. PDFtoXML.jar
 4. Select the PDF file to be extracted by 'Choose' button.
 5. Select the pages to be extracted or enter * for all pages in the file.
 6. Add the password only if required.
-7. Generate the XML in the same folder as of JAR by simply clicking on 'Generate XML', with name designating the time of creation, along with a log file generated in the same directory.
+7. Generate the XML in the same folder as of JAR by simply clicking on 'Generate XML', with name designating the time of creation, along with a log file generated in the same directory named **LogToFile**.
