@@ -1,9 +1,15 @@
 # PDF-to-XML-Converter
 # Project under CITI Summer Intern Pune 
 
+### Team Members -->
+
+  1. Srijan Sankrit (IITG)
+  2. Bhavya Sharma (IITG)
+  3. Kushagra Pandey (IITG)
+
 ##  **Idea**
 
-#### To extract business information from a PDF document and convert it into an XML document
+#### To extract business information from a PDF document and convert it into an XML document.
 
 ## **Libraries used**
 
@@ -11,6 +17,8 @@
 [![JDK Version](https://img.shields.io/badge/JDK-14-brightgreen.svg)](https://docs.oracle.com/en/java/javase/14/)
 [![XML_DOM Version](https://img.shields.io/badge/JAXP-1.4.2-brightgreen.svg)](https://mvnrepository.com/artifact/javax.xml/jaxp-api/1.4.2)
 [![SWT Version](https://img.shields.io/badge/WindowBuilder-1.9.2-brightgreen.svg)](https://projects.eclipse.org/projects/tools.windowbuilder/releases/1.9.2)
+[![Log4j2 Version](https://img.shields.io/badge/WindowBuilder-1.9.2-brightgreen.svg)](https://projects.eclipse.org/projects/tools.windowbuilder/releases/1.9.2)
+[![SWT Version](https://img.shields.io/badge/Log4j2-2.11.1-brightgreen.svg)](https://logging.apache.org/log4j/2.x/)
 
 ## Team-1
 
