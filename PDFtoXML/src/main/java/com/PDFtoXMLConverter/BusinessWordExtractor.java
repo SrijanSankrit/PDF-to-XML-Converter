@@ -50,7 +50,7 @@ public class BusinessWordExtractor {
 			offSet = 1;
 		else if (classifier == MyConstants.BoldFont() || classifier == MyConstants.FontChange())
 			offSet = 0;
-
+		
 		// Checks if font name length decreases which marks the start of value.
 
 		if (classifier == MyConstants.FontChange()) {

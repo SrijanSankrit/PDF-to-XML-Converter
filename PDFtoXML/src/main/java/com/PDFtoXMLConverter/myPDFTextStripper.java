@@ -221,11 +221,11 @@ public class myPDFTextStripper extends PDFTextStripper {
 
 		// If colonCount is 15% of wordCount, use colon to extract data.
 		if ((int) (blockCount * MyConstants.colonPercentage) <= colonCount) {
-			return "COLON";
+			return MyConstants.ColonSeparation();
 		} else if ((int) (blockCount * MyConstants.boldPercentage) <= boldCount) {
-			return "BOLD FONT";
+			return MyConstants.BoldFont();
 		} else {
-			return "FONT CHANGE";
+			return MyConstants.FontChange();
 		}
 	}
 
