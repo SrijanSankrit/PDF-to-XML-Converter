@@ -25,7 +25,7 @@ Not a standard invoice? Don't worry, Our product is capable of converting non-st
 [![JDK Version](https://img.shields.io/badge/JDK-14-brightgreen.svg)](https://docs.oracle.com/en/java/javase/14/)
 [![XML_DOM Version](https://img.shields.io/badge/JAXP-1.4.2-brightgreen.svg)](https://mvnrepository.com/artifact/javax.xml/jaxp-api/1.4.2)
 [![SWT Version](https://img.shields.io/badge/WindowBuilder-1.9.2-brightgreen.svg)](https://projects.eclipse.org/projects/tools.windowbuilder/releases/1.9.2)
-[![Log4j2 Version](https://img.shields.io/badge/Log4j2-2.11.1-brightgreen.svg)](https://logging.apache.org/log4j/2.x/)
+[![Log4j2 Version](https://img.shields.io/badge/Log4j2-2.13.2-brightgreen.svg)](https://logging.apache.org/log4j/2.x/)
 
 ## Instructions for using our product
 
